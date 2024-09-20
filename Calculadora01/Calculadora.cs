@@ -2,31 +2,57 @@
 
 public class Calculadora
 {
-    public double Somar(double a, double b)
+    public static void Calcular()
     {
-        return a + b;
-    }
+        Console.Write("Digite o primeiro valor: ");
+        int value1 = int.Parse(Console.ReadLine());
 
-    public double Subtrair(double a, double b)
-    {
-        return a - b;
-    }
+        Console.WriteLine("Qual operação deseja fazer?");
+        Console.WriteLine("1- Adicionar");
+        Console.WriteLine("2- Subtrair");
+        Console.WriteLine("3- Multiplicar");
+        Console.WriteLine("4- Dividir \n");
 
-    public double Multiplicar(double a, double b)
-    {
-        return a * b;
-    }
+        int input = int.Parse(Console.ReadLine());
 
-    public double Dividir(double a, double b)
-    {
-        if (b != 0)
+        char operadorDigitado = '+';
+        double resultado = 0; // Usar double para divisão
+
+
+        if (input == 1) operadorDigitado = '+';
+        if (input == 2) operadorDigitado = '-';
+        if (input == 3) operadorDigitado = '*';
+        if (input == 4) operadorDigitado = '/';
+
+        Console.Write("Digite o segundo valor: ");
+        int value2 = int.Parse(Console.ReadLine());
+
+        switch (operadorDigitado)
         {
-            return a / b;
+            case '+':
+                resultado = value1 + value2;
+                break;
+            case '-':
+                resultado = value1 - value2;
+                break;
+            case '*':
+                resultado = value1 * value2;
+                break;
+            case '/':
+                if (value2 != 0)
+                {
+                    resultado = (double)value1 / value2; //O double neste caso serve para mostrar as casas decimais 
+                }
+                else
+                {
+                    Console.WriteLine("Erro: Divisão por zero não é permitida!");
+                    return;
+                }
+                break;
         }
-        else
-        {
-            Console.WriteLine("Erro: Divisão por zero!");
-            return double.NaN; // Retorna "Não é um número" em caso de divisão por zero.
-        }
+
+        Console.WriteLine($"{value1} {operadorDigitado} {value2} = {resultado}");
     }
+
+
 }
