@@ -122,7 +122,6 @@ class Program
 
         Console.WriteLine("Fim do código!");
     }
-
     static void Aula3DataTime()
     {
         string myString = "name";
@@ -147,7 +146,6 @@ class Program
         var data = new DateTime(ano, mes, dia);
         Console.WriteLine(data.ToString());
     }
-
     static void Operadores()
     {
         int valor = 10;
@@ -168,8 +166,8 @@ class Program
 
         valor %= 150;
 
-        //Console.WriteLine(valor++);
-        //Console.WriteLine(valor);
-        //Console.WriteLine(++valor);
+        Console.WriteLine(valor++);
+        Console.WriteLine(valor);
+        Console.WriteLine(++valor);
     }
 }
