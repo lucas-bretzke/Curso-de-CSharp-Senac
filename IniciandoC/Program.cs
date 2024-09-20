@@ -5,13 +5,14 @@ class Program
 {
     static void Main()
     {
-        //VerificarNumero()
+        VerificarNumero();
 
         string arrayDeNumeros = "1,2,3,4,5,6,7,8,9,10";
         //ImprimirNumerosPares(arrayDeNumeros);
         //VerificaNumeroPrimo();
         //Aula3DataTime();
-        Operadores();
+        //Operadores();
+
     }
 
     static void VerificarNumero()
