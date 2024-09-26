@@ -1,10 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
+
+
+class Subject
+{
+    public string Name { get; set; }
+    public string Note { get; set; }
+}
 
 
 class Program
 {
     static void Main()
     {
+        //NotasDosAlunos();
+        //CriandoLista();
+
         //SomaDeNumerosPares(5, 10);
         //DiferencaEntreNumeros(5, 10);
         //DividindoEMultiplicando(5, 11);
@@ -16,6 +27,9 @@ class Program
 
         //VerificaSePodeEntrarNaFesta("João");
         //TreinandoSwitch("Ana");
+        //LidandoComFor();
+        ImprimindoTabuadaDoValorDigitado();
+        ImprimindoTabuadaDoValorDigitadoComWhile();
     }
 
     static void SomaDeNumerosPares(int n1, int n2)
@@ -68,6 +82,7 @@ class Program
         Console.WriteLine($"{n1} + {n2} - {input} é = {soma - input}");
     }
 
+    //IONCONPLETO
     static void teste()
     {
         Console.Write("Digite um número: "); int input = int.Parse(Console.ReadLine());
@@ -82,32 +97,111 @@ class Program
         Console.WriteLine(lista.Contains(name) ? $"Pode entrar {name}" : $"Desculpe {name}, seu nome não está na lista");
     }
 
-    static void TreinandoSwitch(string name)
+    //INCONCLUIDO
+    //static void TreinandoSwitch(string name)
+    //{
+
+    //    Console.Write("Digite o nome do mês: ");
+    //    string mes = Console.ReadLine();
+
+    //    // Conjunto de meses com 31 dias
+    //    HashSet<string> names = new HashSet<string>
+    //    {
+    //        ""
+    //    };
+
+
+    //    switch (name = "l")
+    //    {
+    //        case valor1:
+    //            Console.WriteLine("Pode entrar");
+    //            break;
+    //        case valor2:
+    //            Console.WriteLine("Pode entrar");
+    //            break;
+    //        case valor3:
+    //            Console.WriteLine("Pode entrar");
+    //            break;
+    //    }
+    //}
+
+
+    //Exercicios aula 2
+
+    //INCONCLUIDO
+    //static void NotasDosAlunos()
+    //{
+    //    List<Subject> subjects = new List<Subject>();
+
+    //    while (subjects.Count < 3)
+    //    {
+    //        Console.WriteLine("Qual o nome do aluno?: ");
+    //        string nome = Console.ReadLine();
+
+    //        Console.WriteLine($"Qual a nota do {nome}?: ");
+    //        double nota;
+
+    //        // Valida a entrada da nota
+    //        while (!double.TryParse(Console.ReadLine(), out nota))
+    //        {
+    //            Console.WriteLine("Por favor, insira uma nota válida:");
+    //        }
+
+    //        subjects.Add(new Subject { Name = nome, Note = nota });
+    //    }
+
+    //    // Exibir as notas
+    //    Console.WriteLine("Notas:");
+    //    foreach (var subject in subjects)
+    //    {
+    //        Console.WriteLine($"Nome: {subject.Name}, Nota: {subject.Note}");
+    //    }
+    //}
+
+
+    static void LidandoComFor()
     {
+        string[] alunos = { "Lucas", "Valentinba", "Fulano" };
 
-        Console.Write("Digite o nome do mês: ");
-        string mes = Console.ReadLine();
-
-        // Conjunto de meses com 31 dias
-        HashSet<string> names = new HashSet<string>
+        foreach (string aluno in alunos)
         {
-            ""
-        };
-
-
-        switch (name = "l")
-        {
-            case valor1:
-                Console.WriteLine("Pode entrar");
-                break;
-            case valor2:
-                Console.WriteLine("Pode entrar");
-                break;
-            case valor3:
-                Console.WriteLine("Pode entrar");
-                break;
+            Console.WriteLine(aluno);
         }
+
+        Console.WriteLine("Pressione Enter para sair...");
+        Console.ReadLine(); // Espera o usuário pressionar Enter
     }
 
+
+    static void ImprimindoTabuadaDoValorDigitado()
+    {
+
+        Console.Write("Digite um número para ver a tabuada: "); int input = int.Parse(Console.ReadLine());
+
+        for (var i = 1; i < 11; i++)
+        {
+            Console.WriteLine($"{input} x {i} = {input * i}");
+        }
+
+        Console.WriteLine("Pressione Enter para sair...");
+        Console.ReadLine();
+    }
+
+    static void ImprimindoTabuadaDoValorDigitadoComWhile()
+    {
+        List<int> numerosDigitados = [];
+        string maior;
+        string menor;
+
+        Console.Write($"Digite um valor: "); string input = Console.ReadLine();
+       
+
+        while (input != "ok")
+        {
+            Console.WriteLine($"{input} x {i} = {input * i}");
+        }
+
+
+    }
 
 }
