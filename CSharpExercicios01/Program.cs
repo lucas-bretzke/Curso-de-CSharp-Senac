@@ -23,13 +23,24 @@ class Program
         //AtribuirValorDigitado();
         //AtribuiValorEValorDigitado();
         //AtribuiValorESubtraiPeloValorDigitado();
-
+        //DeclararVariavelAtribuirValorEMultiplicarPorValorDigitado();
+        //DeclararVariavelEMultiplicarPeloValorDigitado();
+        //VerificaNumerosIguais();
+        //VerificaNumerosDiferentes();
+        //VerificaSePrimeiroNumeroEMaiorQueOSegundo();
+        //VerificaSePrimeiroNumeroEMenorQueOSegundo();
+        //VerificaSePrimeiroNumeroEMaiorOuIgualAoOSegundo();
+        //VerificaSeAmbosSaoMaioresQueZero();
+        //VerificaSeAmbosOuAlgumEMaioresQueZero();
+        //VerificaIdade();
+        //VerificaNumeroPar();
+        VerificaNumeroMaiorQueZero();
 
         //VerificaSePodeEntrarNaFesta("João");
-        //TreinandoSwitch("Ana");
+        //PosicaoDoNomeNoAlfabeto();
         //LidandoComFor();
         //ImprimindoTabuadaDoValorDigitado();
-        ImprimirMaiorEMenorNumero();
+        //ImprimirMaiorEMenorNumero();
     }
 
     static void SomaDeNumerosPares(int n1, int n2)
@@ -80,50 +91,199 @@ class Program
 
         Console.Write("Digite um número: "); int input = int.Parse(Console.ReadLine());
         Console.WriteLine($"{n1} + {n2} - {input} é = {soma - input}");
+
+        Console.WriteLine("Precione Enter para finalizar");
+        Console.ReadLine();
     }
 
-    //IONCONPLETO
-    static void teste()
+    static void DeclararVariavelAtribuirValorEMultiplicarPorValorDigitado()
     {
+        int n1 = 5;
+        int n2 = 5;
+
         Console.Write("Digite um número: "); int input = int.Parse(Console.ReadLine());
+        Console.WriteLine($"{n1} + {n2} x {input} é = {(n1 + n2) * input}");
+
+        Console.WriteLine("Precione Enter para finalizar");
+        Console.ReadLine();
 
     }
 
+    static void DeclararVariavelEMultiplicarPeloValorDigitado()
+    {
+        int n1 = 10;
+
+        Console.Write($"Digite um número para ser dividido por {n1}: "); int input = int.Parse(Console.ReadLine());
+        Console.WriteLine($"{n1} / {input} é = {n1 / input}");
+
+        Console.WriteLine("Precione Enter para finalizar");
+        Console.ReadLine();
+
+    }
+
+
+    // Operadores Relacionais
+
+    static void VerificaNumerosIguais()
+    {
+        Console.WriteLine("Digite um numero: "); int n1 = int.Parse(Console.ReadLine());
+        Console.WriteLine("Digite um numero: "); int n2 = int.Parse(Console.ReadLine());
+
+        string res = n1 == n2 ? "São iguais" : "São diferentes";
+
+        Console.WriteLine(res);
+        Console.ReadLine();
+    }
+
+    static void VerificaNumerosDiferentes()
+    {
+        Console.WriteLine("Digite um numero: "); int n1 = int.Parse(Console.ReadLine());
+        Console.WriteLine("Digite um numero: "); int n2 = int.Parse(Console.ReadLine());
+
+        string res = n1 != n2 ? "São diferentes" : "São iguais";
+
+        Console.WriteLine(res);
+        Console.ReadLine();
+    }
+
+    static void VerificaSePrimeiroNumeroEMaiorQueOSegundo()
+    {
+        Console.WriteLine("Digite um numero: "); int n1 = int.Parse(Console.ReadLine());
+        Console.WriteLine("Digite um numero: "); int n2 = int.Parse(Console.ReadLine());
+
+        string res = n1 > n2 ? "O primeiro numero digitado é maior" : "O primeiro numero digitado é menor";
+
+        Console.WriteLine(res);
+        Console.ReadLine();
+    }
+
+    static void VerificaSePrimeiroNumeroEMenorQueOSegundo()
+    {
+        Console.WriteLine("Digite um numero: "); int n1 = int.Parse(Console.ReadLine());
+        Console.WriteLine("Digite um numero: "); int n2 = int.Parse(Console.ReadLine());
+
+        string res = n1 < n2 ? "O primeiro numero digitado é menor" : "O primeiro numero digitado é maior";
+
+        Console.WriteLine(res);
+        Console.ReadLine();
+    }
+
+    static void VerificaSePrimeiroNumeroEMaiorOuIgualAoOSegundo()
+    {
+        Console.WriteLine("Digite um numero: "); int n1 = int.Parse(Console.ReadLine());
+        Console.WriteLine("Digite um numero: "); int n2 = int.Parse(Console.ReadLine());
+
+        string res = n1 >= n2 ? "O primeiro numero digitado é Maior ou igual" : "O primeiro numero digitado é menor";
+
+        Console.WriteLine(res);
+        Console.ReadLine();
+    }
+
+
+    // Operadores Lógicos
+
+    static void VerificaSeAmbosSaoMaioresQueZero()
+    {
+        Console.WriteLine("Digite um numero: "); int n1 = int.Parse(Console.ReadLine());
+        Console.WriteLine("Digite um numero: "); int n2 = int.Parse(Console.ReadLine());
+
+        string res = (n1 > 0 && n2 > 0) ? "Ambos são maior que zero" : "Ambos ou algum não é maior que zero";
+
+        Console.WriteLine(res);
+        Console.ReadLine();
+    }
+
+    static void VerificaSeAmbosOuAlgumEMaioresQueZero()
+    {
+        Console.WriteLine("Digite um numero: "); int n1 = int.Parse(Console.ReadLine());
+        Console.WriteLine("Digite um numero: "); int n2 = int.Parse(Console.ReadLine());
+
+        string res = (n1 > 0 || n2 > 0) ? "Ambos ou algum deles é maior que zero" : "Nenhum deles é maior que zero";
+
+        Console.WriteLine(res);
+        Console.ReadLine();
+    }
+
+
+    // Operadores Ternários
+
+    static void VerificaIdade()
+    {
+        Console.WriteLine("Digite sua idade: "); int idade = int.Parse(Console.ReadLine());
+
+        string res = idade >= 18 ? "É maior de idade" : "É menor de idade";
+
+        Console.WriteLine(res);
+        Console.ReadLine();
+    }
+
+    static void VerificaNumeroPar()
+    {
+        Console.WriteLine("Digite um numero: "); int n1 = int.Parse(Console.ReadLine());
+
+        string res = n1 % 2 == 0 ? "É Par" : "É Impar";
+
+        Console.WriteLine(res);
+        Console.ReadLine();
+    }
+
+    static void VerificaNumeroMaiorQueZero()
+    {
+        Console.WriteLine("Digite um numero: "); int n1 = int.Parse(Console.ReadLine());
+
+        string res = n1 > 0 ? "Positivo, é maior que zero" : n1 == 0 ? "É zero" : "Negativo, é menor que zero";
+
+        Console.WriteLine(res);
+        Console.ReadLine();
+    }
+
+
+    // Exercicios a parte 
 
     static void VerificaSePodeEntrarNaFesta(string name)
     {
-        string lista = "Ana, maria, João";
+        List<string> lista = new List<string>();
+        lista.Add("Ana");
+        lista.Add("Maria");
+        lista.Add("João");
 
         Console.WriteLine(lista.Contains(name) ? $"Pode entrar {name}" : $"Desculpe {name}, seu nome não está na lista");
+
+        Console.ReadLine();
     }
 
-    //INCONCLUIDO
-    //static void TreinandoSwitch(string name)
-    //{
+    static void PosicaoDoNomeNoAlfabeto()
+    {
+        Console.Write("Digite um nome: ");
+        string name = Console.ReadLine();
 
-    //    Console.Write("Digite o nome do mês: ");
-    //    string mes = Console.ReadLine();
+        // Usando operador ternário
+        string resultado = char.ToUpper(name[0]) <= 'H' ? "Está entre A e H" :
+            char.ToUpper(name[0]) <= 's' ? "Está entre I e S" : "Está entre T e Z";
 
-    //    // Conjunto de meses com 31 dias
-    //    HashSet<string> names = new HashSet<string>
-    //    {
-    //        ""
-    //    };
+        Console.WriteLine($"{name}: {resultado}");
+
+        // Usando switch case
+        switch (char.ToUpper(name[0]))
+        {
+            case >= 'A' and <= 'H':
+                Console.WriteLine("Está entre A e H");
+                break;
+            case >= 'I' and <= 'S':
+                Console.WriteLine("Está entre I e S");
+                break;
+            case >= 'T' and <= 'Z':
+                Console.WriteLine("Está entre T e Z");
+                break;
+            default:
+                Console.WriteLine("Caractere inválido.");
+                break;
+        }
+
+        Console.ReadLine();
 
 
-    //    switch (name = "l")
-    //    {
-    //        case valor1:
-    //            Console.WriteLine("Pode entrar");
-    //            break;
-    //        case valor2:
-    //            Console.WriteLine("Pode entrar");
-    //            break;
-    //        case valor3:
-    //            Console.WriteLine("Pode entrar");
-    //            break;
-    //    }
-    //}
+    }
 
 
     //Exercicios aula 2
@@ -171,7 +331,6 @@ class Program
         Console.WriteLine("Pressione Enter para sair...");
         Console.ReadLine(); // Espera o usuário pressionar Enter
     }
-
 
     static void ImprimindoTabuadaDoValorDigitado()
     {
