@@ -28,8 +28,8 @@ class Program
         //VerificaSePodeEntrarNaFesta("João");
         //TreinandoSwitch("Ana");
         //LidandoComFor();
-        ImprimindoTabuadaDoValorDigitado();
-        ImprimindoTabuadaDoValorDigitadoComWhile();
+        //ImprimindoTabuadaDoValorDigitado();
+        ImprimirMaiorEMenorNumero();
     }
 
     static void SomaDeNumerosPares(int n1, int n2)
@@ -187,21 +187,36 @@ class Program
         Console.ReadLine();
     }
 
-    static void ImprimindoTabuadaDoValorDigitadoComWhile()
+    static void ImprimirMaiorEMenorNumero()
     {
-        List<int> numerosDigitados = [];
-        string maior;
-        string menor;
+        List<int> numeros = new List<int>();
 
-        Console.Write($"Digite um valor: "); string input = Console.ReadLine();
-       
-
-        while (input != "ok")
+        while (true)
         {
-            Console.WriteLine($"{input} x {i} = {input * i}");
+            Console.Write("Digite um número (ou 'Ok' para parar): ");
+            string input = Console.ReadLine();
+
+            if (input == "Ok") break;
+
+            if (int.TryParse(input, out int numero))
+                numeros.Add(numero);
+            else
+                Console.WriteLine("Entrada inválida. Por favor, digite um número.");
         }
 
+        if (numeros.Any())
+        {
+            Console.WriteLine($"Menor número: {numeros.Min()}");
+            Console.WriteLine($"Maior número: {numeros.Max()}");
+        }
+        else
+        {
+            Console.WriteLine("Nenhum número válido foi inserido.");
+        }
+
+        Console.WriteLine("Números digitados: " + string.Join(", ", numeros));
+
+        Console.WriteLine("\nPressione Enter para finalizar..."); Console.ReadLine();
 
     }
-
 }

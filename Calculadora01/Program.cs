@@ -4,6 +4,7 @@ class Program
 {
     static void Main()
     {
-        Calculadora.Calcular();
+        //Calculadora.Calcular();
+        Tabuada.Program();
     }
 }
