@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 
 
-class Subject
+class Student
 {
     public string Name { get; set; }
-    public string Note { get; set; }
+    public double Note { get; set; }
 }
 
 
@@ -13,7 +13,7 @@ class Program
 {
     static void Main()
     {
-        //NotasDosAlunos();
+        NotasDosAlunos();
         //CriandoLista();
 
         //SomaDeNumerosPares(5, 10);
@@ -34,7 +34,7 @@ class Program
         //VerificaSeAmbosOuAlgumEMaioresQueZero();
         //VerificaIdade();
         //VerificaNumeroPar();
-        VerificaNumeroMaiorQueZero();
+        //VerificaNumeroMaiorQueZero();
 
         //VerificaSePodeEntrarNaFesta("João");
         //PosicaoDoNomeNoAlfabeto();
@@ -238,7 +238,7 @@ class Program
     }
 
 
-    // Exercicios a parte 
+    ////
 
     static void VerificaSePodeEntrarNaFesta(string name)
     {
@@ -286,37 +286,33 @@ class Program
     }
 
 
-    //Exercicios aula 2
+    // 02
+    static void NotasDosAlunos()
+    {
+        List<Student> students = new List<Student>();
 
-    //INCONCLUIDO
-    //static void NotasDosAlunos()
-    //{
-    //    List<Subject> subjects = new List<Subject>();
+        while (students.Count < 3)
+        {
+            Console.WriteLine("Qual o nome do aluno?: ");  string nome = Console.ReadLine();
 
-    //    while (subjects.Count < 3)
-    //    {
-    //        Console.WriteLine("Qual o nome do aluno?: ");
-    //        string nome = Console.ReadLine();
+            Console.WriteLine($"Qual a nota do {nome}?: ");
+            double nota;
 
-    //        Console.WriteLine($"Qual a nota do {nome}?: ");
-    //        double nota;
+            while (!double.TryParse(Console.ReadLine(), out nota) || nota < 0 || nota > 10)
+            {
+                Console.WriteLine("Por favor, insira uma nota válida entre 0 e 10:");
+            }
 
-    //        // Valida a entrada da nota
-    //        while (!double.TryParse(Console.ReadLine(), out nota))
-    //        {
-    //            Console.WriteLine("Por favor, insira uma nota válida:");
-    //        }
+            students.Add(new Student { Name = nome, Note = nota });
+        }
 
-    //        subjects.Add(new Subject { Name = nome, Note = nota });
-    //    }
-
-    //    // Exibir as notas
-    //    Console.WriteLine("Notas:");
-    //    foreach (var subject in subjects)
-    //    {
-    //        Console.WriteLine($"Nome: {subject.Name}, Nota: {subject.Note}");
-    //    }
-    //}
+        // Exibir as notas
+        Console.WriteLine("\nNotas:");
+        foreach (var student in students)
+        {
+            Console.WriteLine($"Nome: {student.Name}, Nota: {student.Note}");
+        }
+    }
 
 
     static void LidandoComFor()
