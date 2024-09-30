@@ -75,22 +75,19 @@ class Program
 
     static void AtribuiValorEValorDigitado()
     {
-        int num1 = 1;
-        int num2 = 5;
+        int num1 = 10;
 
         Console.Write("Digite um número: "); int input = int.Parse(Console.ReadLine());
 
-        Console.WriteLine($"{num1} + {num2} + {input} = {num1 + num2 + input}");
+        Console.WriteLine($"{num1} + {input} = {num1 + input}");
     }
 
     static void AtribuiValorESubtraiPeloValorDigitado()
     {
-        int n1 = 5;
-        int n2 = 5;
-        int soma = n1 + n2;
+        int n1 = 10;
 
         Console.Write("Digite um número: "); int input = int.Parse(Console.ReadLine());
-        Console.WriteLine($"{n1} + {n2} - {input} é = {soma - input}");
+        Console.WriteLine($"{n1} - {input} é = {n1 - input}");
 
         Console.WriteLine("Precione Enter para finalizar");
         Console.ReadLine();
@@ -98,11 +95,10 @@ class Program
 
     static void DeclararVariavelAtribuirValorEMultiplicarPorValorDigitado()
     {
-        int n1 = 5;
-        int n2 = 5;
+        int n1 = 10;
 
         Console.Write("Digite um número: "); int input = int.Parse(Console.ReadLine());
-        Console.WriteLine($"{n1} + {n2} x {input} é = {(n1 + n2) * input}");
+        Console.WriteLine($"{n1} x {input} é = {n1 * input}");
 
         Console.WriteLine("Precione Enter para finalizar");
         Console.ReadLine();
