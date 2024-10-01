@@ -7,6 +7,11 @@ class Student
     public string Name { get; set; }
     public double Note { get; set; }
 }
+class User
+{
+    public string Name { get; set; }
+    public string Password { get; set; }
+}
 
 
 class Program
@@ -41,7 +46,9 @@ class Program
         //LidandoComFor();
         //ImprimindoTabuadaDoValorDigitado();
         //ImprimirMaiorEMenorNumero();
-        ValidaSenha();
+        //ValidaSenha();
+        //ValidandoUsuarios();
+        ListaDeAlunos();
     }
 
     static void SomaDeNumerosPares(int n1, int n2)
@@ -373,6 +380,7 @@ class Program
     }
 
 
+    // Do-While
     static void ValidaSenha()
     {
         string password = "333333";
@@ -383,11 +391,81 @@ class Program
             Console.Write("Informe sua senha: "); input = Console.ReadLine();
 
             Console.WriteLine(input == password ? "Você entrou" : "Senha incorreta");
-            if(input == password) break;
+            if (input == password) break;
 
         } while (input != "");
 
         Console.WriteLine("\nPressione Enter para finalizar...");
         Console.ReadLine();
+    }
+
+    static void ValidandoUsuarios()
+    {
+
+        List<User> users = new List<User>();
+
+        users.Add(new User { Name = "Lucas", Password = "333333" });
+        users.Add(new User { Name = "Sabrina", Password = "444444" });
+        users.Add(new User { Name = "Valentina", Password = "555555" });
+
+        int usuariosLogados = 0;
+        string nome;
+        string senha;
+
+        do
+        {
+            Console.Write("Usuário? ");
+            nome = Console.ReadLine();
+
+            bool usuarioEncontrado = false;
+
+            foreach (var user in users)
+            {
+                if (nome == user.Name)
+                {
+                    usuarioEncontrado = true;
+                    Console.Write("Senha? "); senha = Console.ReadLine();
+                    Console.WriteLine(senha == user.Password ? "Você entrou" : "Senha incorreta");
+                    if (senha == user.Password) usuariosLogados++;
+                }
+            }
+
+            if (!usuarioEncontrado)
+            {
+                Console.WriteLine("Usuário não existe");
+            }
+
+            Console.WriteLine($"Usuários logados: {usuariosLogados}");
+        } while (usuariosLogados < users.Count);
+
+
+        foreach (var user in users)
+        {
+            Console.WriteLine($"Nome: {user.Name}, Senha: {user.Password}");
+        }
+
+        Console.ReadLine();
+    }
+
+
+    static void ListaDeAlunos()
+    {
+        List<string> alunos = new List<string>();
+
+
+        for (var i = 0; alunos.Count() < 3; i++)
+        {
+            Console.Write("Adicione um nome "); string name = Console.ReadLine();
+
+            alunos.Add(name);
+        }
+
+
+        foreach (var aluno in alunos)
+        {
+            Console.WriteLine($"Nome: {aluno}");
+        }
+
+
     }
 }
