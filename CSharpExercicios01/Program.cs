@@ -13,7 +13,7 @@ class Program
 {
     static void Main()
     {
-        NotasDosAlunos();
+        //NotasDosAlunos();
         //CriandoLista();
 
         //SomaDeNumerosPares(5, 10);
@@ -41,6 +41,7 @@ class Program
         //LidandoComFor();
         //ImprimindoTabuadaDoValorDigitado();
         //ImprimirMaiorEMenorNumero();
+        ValidaSenha();
     }
 
     static void SomaDeNumerosPares(int n1, int n2)
@@ -289,7 +290,7 @@ class Program
 
         while (students.Count < 3)
         {
-            Console.WriteLine("Qual o nome do aluno?: ");  string nome = Console.ReadLine();
+            Console.WriteLine("Qual o nome do aluno?: "); string nome = Console.ReadLine();
 
             Console.WriteLine($"Qual a nota do {nome}?: ");
             double nota;
@@ -369,5 +370,24 @@ class Program
 
         Console.WriteLine("\nPressione Enter para finalizar..."); Console.ReadLine();
 
+    }
+
+
+    static void ValidaSenha()
+    {
+        string password = "333333";
+        string input;
+
+        do
+        {
+            Console.Write("Informe sua senha: "); input = Console.ReadLine();
+
+            Console.WriteLine(input == password ? "Você entrou" : "Senha incorreta");
+            if(input == password) break;
+
+        } while (input != "");
+
+        Console.WriteLine("\nPressione Enter para finalizar...");
+        Console.ReadLine();
     }
 }
