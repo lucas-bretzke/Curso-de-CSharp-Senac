@@ -466,6 +466,7 @@ class Program
             Console.WriteLine($"Nome: {aluno}");
         }
 
+        Console.ReadLine();
 
     }
 }
