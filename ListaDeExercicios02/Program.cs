@@ -218,37 +218,36 @@ class Program
 
     static void CompararNumeroDigitadoComODaLista()
     {
-        List<int> numbers = new List<int>();
-        numbers.Add(1);
-        numbers.Add(10);
-        numbers.Add(20);
-        numbers.Add(30);
-        numbers.Add(40);
-        numbers.Add(50);
-        numbers.Add(60);
-        numbers.Add(70);
-        numbers.Add(80);
-        numbers.Add(90);
-        numbers.Add(100);
-
+        List<int> numbers = new List<int> { 1, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
         int count = 0;
+        bool pararPrograma = false;
 
         Console.WriteLine("Digite um numero entre 1 e 100:"); int entrada = int.Parse(Console.ReadLine());
 
-        if (numbers.Contains(entrada)) Console.WriteLine("Parabéns, este número está na lista!");
-        count++;
+        if (numbers.Contains(entrada))
+        {
+            Console.WriteLine("Parabéns, este número está na lista!");
+            count++;
 
-        while (count < 3)
+            pararPrograma = true;
+        }
+
+        while (count < 3 && pararPrograma == false)
         {
             Console.WriteLine("Você errou, tente novamente:"); int numero = int.Parse(Console.ReadLine());
 
-            if (numbers.Contains(numero)) Console.WriteLine("Parabéns, este número está na lista!");
-            count++;
+            if (numbers.Contains(numero))
+            {
+                Console.Clear();
+                Console.WriteLine("Parabéns, este número está na lista!");
+                count++;
 
-
-            if (count == 3) Console.WriteLine("Você tentou 3 vezes, acabou as chances");
+                pararPrograma = true;
+            }
         }
 
+
+        Console.WriteLine("Você tentou 3 vezes, acabou as chances");
         Console.ReadLine();
     }
 }
