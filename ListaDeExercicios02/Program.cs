@@ -50,7 +50,6 @@ class Program
 
     }
 
-
     // Instrução Switch
     static void DiaDaSemana()
     {
@@ -214,40 +213,41 @@ class Program
     }
 
 
-
-
     static void CompararNumeroDigitadoComODaLista()
     {
-        List<int> numbers = new List<int> { 1, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
+        List<int> numeros = new List<int> {10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
         int count = 0;
-        bool pararPrograma = false;
+        bool numeroEncontrado = false;
 
-        Console.WriteLine("Digite um numero entre 1 e 100:"); int entrada = int.Parse(Console.ReadLine());
-
-        if (numbers.Contains(entrada))
+        while (count < 3 && !numeroEncontrado)
         {
-            Console.WriteLine("Parabéns, este número está na lista!");
-            count++;
+            Console.WriteLine("Digite um número entre 1 e 100:");
+            int entrada;
 
-            pararPrograma = true;
-        }
+            while (!int.TryParse(Console.ReadLine(), out entrada))
+            {
+                Console.WriteLine("Por favor, digite um número válido entre 1 e 100:");
+            }
 
-        while (count < 3 && pararPrograma == false)
-        {
-            Console.WriteLine("Você errou, tente novamente:"); int numero = int.Parse(Console.ReadLine());
-
-            if (numbers.Contains(numero))
+            if (numeros.Contains(entrada))
             {
                 Console.Clear();
                 Console.WriteLine("Parabéns, este número está na lista!");
+                numeroEncontrado = true;
+            }
+            else
+            {
                 count++;
-
-                pararPrograma = true;
+                Console.WriteLine("Você errou, tente novamente.");
+                Console.WriteLine($"Tentativa {count} de 3.");
             }
         }
 
+        if (!numeroEncontrado)
+        {
+            Console.WriteLine("Você tentou 3 vezes, acabou as chances.");
+        }
 
-        Console.WriteLine("Você tentou 3 vezes, acabou as chances");
         Console.ReadLine();
     }
 }
