@@ -15,7 +15,8 @@ class Program
         //ImprimeMenorEmaiorNumero();
         //exibirListaDeNomes();
         //ListaDeNomesDeTamanhoIndeterminado();
-        CompararNumeroDigitadoComODaLista();
+        //CompararNumeroDigitadoComODaLista();
+        CalcularFatorialDoNumero();
     }
 
     // Instrução IF
@@ -215,7 +216,7 @@ class Program
 
     static void CompararNumeroDigitadoComODaLista()
     {
-        List<int> numeros = new List<int> {10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
+        List<int> numeros = new List<int> { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
         int count = 0;
         bool numeroEncontrado = false;
 
@@ -249,5 +250,33 @@ class Program
         }
 
         Console.ReadLine();
+    }
+
+    // Instrução For
+    static void CalcularFatorialDoNumero()
+    {
+        {
+            Console.WriteLine("Digite um número inteiro positivo:");
+            int numero;
+
+            // Validação de entrada para garantir que seja um número inteiro positivo
+            while (!int.TryParse(Console.ReadLine(), out numero) || numero < 0)
+            {
+                Console.WriteLine("Por favor, digite um número inteiro positivo:");
+            }
+
+            // Inicializa o fatorial como 1, já que o fatorial de 0 e 1 é 1
+            int fatorial = 1;
+
+            // Calcula o fatorial usando um loop for
+            for (int i = 2; i <= numero; i++)
+            {
+                fatorial *= i;
+            }
+
+            // Exibe o resultado
+            Console.WriteLine($"O fatorial de {numero} é {fatorial}.");
+            Console.ReadLine();
+        }
     }
 }
