@@ -8,29 +8,29 @@ class Program
 {
     static void Main()
     {
-        //NumeroImparOuPar();
-        //VerificaIdade();
-        //DiaDaSemana();
-        //SomaDeNumerosDoArray();
-        //ImprimeMenorEmaiorNumero();
-        //exibirListaDeNomes();
-        //ListaDeNomesDeTamanhoIndeterminado();
-        //CompararNumeroDigitadoComODaLista();
-        //CalcularFatorialDoNumero();
-        //ExibirTabuada();
-        //SomarNumerosPositivos();
-        //ContarNumerosPares();
-        //ImprimirListaDeNomes();
-        SistemaDeBanco();
+        //CheckIfNumberIsOddOrEven();
+        //CheckUserAge();
+        //DisplayDayOfTheWeek();
+        //SumNumbersInArray();
+        //PrintSmallestAndLargestNumber();
+        //DisplayListOfNames();
+        //InputNamesWithUnknownLength();
+        //CompareEnteredNumberWithList();
+        //CalculateFactorialOfNumber();
+        //DisplayMultiplicationTable();
+        //SumPositiveNumbers();
+        //CountEvenNumbers();
+        //PrintNamesList();
+        BankSystem();
     }
 
     // Instrução IF
-    static void NumeroImparOuPar()
+    static void CheckIfNumberIsOddOrEven()
     {
-        Console.WriteLine("Digite um numero: "); int numero = int.Parse(Console.ReadLine());
+        Console.WriteLine("Digite um numero: "); int number = int.Parse(Console.ReadLine());
 
 
-        if (numero % 2 == 0)
+        if (number % 2 == 0)
         {
             Console.WriteLine("Número é Par");
         }
@@ -40,12 +40,12 @@ class Program
         }
     }
 
-    static void VerificaIdade()
+    static void CheckUserAge()
     {
-        Console.WriteLine("Digite um numero: "); int idade = int.Parse(Console.ReadLine());
+        Console.WriteLine("Digite um numero: "); int age = int.Parse(Console.ReadLine());
 
 
-        if (idade < 18 || idade > 60)
+        if (age < 18 || age > 60)
         {
             Console.WriteLine("Entrada barrada por normas de segurança");
         }
@@ -57,7 +57,7 @@ class Program
     }
 
     // Instrução Switch
-    static void DiaDaSemana()
+    static void DisplayDayOfTheWeek()
     {
         Console.WriteLine("Digite um número entre 1 e 7: ");
         int dia;
@@ -101,7 +101,7 @@ class Program
     }
 
     // Arrays
-    static void SomaDeNumerosDoArray()
+    static void SumNumbersInArray()
     {
         int[] array = new int[5];
         int numero;
@@ -131,7 +131,7 @@ class Program
         Console.ReadLine();
     }
 
-    static void ImprimeMenorEmaiorNumero()
+    static void PrintSmallestAndLargestNumber()
     {
         int[] array = new int[10];
         int numero;
@@ -166,7 +166,7 @@ class Program
         Console.ReadLine();
     }
 
-    static void exibirListaDeNomes()
+    static void DisplayListOfNames()
     {
         string[] names = new string[5];
         int index = 0;
@@ -188,7 +188,7 @@ class Program
     }
 
     // Listas
-    static void ListaDeNomesDeTamanhoIndeterminado()
+    static void InputNamesWithUnknownLength()
     {
         List<string> names = new List<string>();
         bool pararPrograma = false;
@@ -219,7 +219,7 @@ class Program
     }
 
 
-    static void CompararNumeroDigitadoComODaLista()
+    static void CompareEnteredNumberWithList()
     {
         List<int> numeros = new List<int> { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
         int count = 0;
@@ -258,7 +258,7 @@ class Program
     }
 
     // Instrução For
-    static void CalcularFatorialDoNumero()
+    static void CalculateFactorialOfNumber()
     {
         {
             Console.WriteLine("Digite um número inteiro positivo:");
@@ -282,7 +282,7 @@ class Program
         }
     }
 
-    static void ExibirTabuada()
+    static void DisplayMultiplicationTable()
     {
         {
             Console.WriteLine("Digite um número inteiro: ");
@@ -306,7 +306,7 @@ class Program
     }
 
     // Introdução While
-    static void SomarNumerosPositivos()
+    static void SumPositiveNumbers()
     {
         int soma = 0;
         int numero = 0;
@@ -327,7 +327,7 @@ class Program
         Console.ReadLine();
     }
 
-    static void ContarNumerosPares()
+    static void CountEvenNumbers()
     {
         int numerosPares = 0;
         int numero = -1;
@@ -351,7 +351,7 @@ class Program
 
     // Instrução Foreach
 
-    static void ImprimirListaDeNomes()
+    static void PrintNamesList()
     {
         List<string> nomes = new List<string> { "Lucas", "Maria", "João", "Ana", "Pedro" };
 
@@ -366,10 +366,28 @@ class Program
 
     //Instrução Do-While
 
-    static void SistemaDeBanco()
+    static void BankSystem()
     {
         bool continuar = true;
         decimal saldo = 0;
+        int tentativa = 0;
+
+
+        while (tentativa < 3 && !ValidaSenha())
+        {
+            tentativa++;
+            Console.Clear();
+            Console.WriteLine("Senha incorreta. Tente novamente.");
+            Console.WriteLine($"Tentativa {tentativa} de 3");
+        }
+
+
+        if (tentativa >= 3)
+        {
+            Console.WriteLine("Número máximo de tentativas alcançado. O programa será encerrado.");
+            return;
+        }
+
 
         while (continuar)
         {
@@ -411,6 +429,17 @@ class Program
                 Console.ReadKey();
             }
         }
+    }
+
+    static bool ValidaSenha()
+    {
+        string password = "333333";
+        string input;
+
+        Console.Write("Informe sua senha: ");
+        input = Console.ReadLine();
+
+        return input == password;
     }
 
     static void ConsultarSaldo(decimal saldo)
