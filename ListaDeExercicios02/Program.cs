@@ -60,11 +60,11 @@ class Program
     static void DisplayDayOfTheWeek()
     {
         Console.WriteLine("Digite um número entre 1 e 7: ");
-        int dia;
+        int day;
 
-        if (int.TryParse(Console.ReadLine(), out dia))
+        if (int.TryParse(Console.ReadLine(), out day))
         {
-            switch (dia)
+            switch (day)
             {
                 case 1:
                     Console.WriteLine("Segunda-feira");
@@ -104,16 +104,16 @@ class Program
     static void SumNumbersInArray()
     {
         int[] array = new int[5];
-        int numero;
+        int number;
         int count = 0;
 
         while (count < 5)
         {
             Console.WriteLine("Digite um número: ");
 
-            if (int.TryParse(Console.ReadLine(), out numero))
+            if (int.TryParse(Console.ReadLine(), out number))
             {
-                array[count] = numero;
+                array[count] = number;
                 count++;
             }
             else
@@ -134,18 +134,18 @@ class Program
     static void PrintSmallestAndLargestNumber()
     {
         int[] array = new int[10];
-        int numero;
+        int number;
         int count = 0;
-        int menorNumero = int.MaxValue;
-        int maiorNumero = int.MinValue;
+        int smallestNumber = int.MaxValue;
+        int largestNumber = int.MinValue;
 
         while (count < 10)
         {
             Console.WriteLine("Digite um número: ");
 
-            if (int.TryParse(Console.ReadLine(), out numero))
+            if (int.TryParse(Console.ReadLine(), out number))
             {
-                array[count] = numero;
+                array[count] = number;
                 count++;
             }
             else
@@ -157,12 +157,12 @@ class Program
         Console.WriteLine("Números digitados:");
         foreach (int num in array)
         {
-            if (num > maiorNumero) maiorNumero = num;
-            if (num < menorNumero) menorNumero = num;
+            if (num > largestNumber) largestNumber = num;
+            if (num < smallestNumber) smallestNumber = num;
         }
 
-        Console.WriteLine($"Menor numero:{menorNumero}");
-        Console.WriteLine($"Maior numero:{maiorNumero}");
+        Console.WriteLine($"Menor numero:{smallestNumber}");
+        Console.WriteLine($"Maior numero:{largestNumber}");
         Console.ReadLine();
     }
 
@@ -173,8 +173,8 @@ class Program
 
         while (index < names.Length)
         {
-            Console.WriteLine("Digite um nome: "); string nome = Console.ReadLine();
-            names[index] = nome;
+            Console.WriteLine("Digite um nome: "); string name = Console.ReadLine();
+            names[index] = name;
             index++;
         }
 
@@ -191,22 +191,22 @@ class Program
     static void InputNamesWithUnknownLength()
     {
         List<string> names = new List<string>();
-        bool pararPrograma = false;
+        bool stopProgram = false;
 
-        Console.WriteLine("Digite um nome:"); string entrada = Console.ReadLine();
-        names.Add(entrada);
+        Console.WriteLine("Digite um nome:"); string prohibited = Console.ReadLine();
+        names.Add(prohibited);
 
-        while (!pararPrograma)
+        while (!stopProgram)
         {
-            Console.WriteLine("Digite umm nome\nou Ok para finalizar:"); string nome = Console.ReadLine();
+            Console.WriteLine("Digite umm nome\nou Ok para finalizar:"); string name = Console.ReadLine();
 
-            if (nome == "Ok")
+            if (name == "Ok")
             {
-                pararPrograma = true;
+                stopProgram = true;
             }
             else
             {
-                names.Add(nome);
+                names.Add(name);
             }
 
         }
@@ -221,25 +221,25 @@ class Program
 
     static void CompareEnteredNumberWithList()
     {
-        List<int> numeros = new List<int> { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
+        List<int> numbers = new List<int> { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
         int count = 0;
-        bool numeroEncontrado = false;
+        bool numberFound = false;
 
-        while (count < 3 && !numeroEncontrado)
+        while (count < 3 && !numberFound)
         {
             Console.WriteLine("Digite um número entre 1 e 100:");
-            int entrada;
+            int prohibited;
 
-            while (!int.TryParse(Console.ReadLine(), out entrada))
+            while (!int.TryParse(Console.ReadLine(), out prohibited))
             {
                 Console.WriteLine("Por favor, digite um número válido entre 1 e 100:");
             }
 
-            if (numeros.Contains(entrada))
+            if (numbers.Contains(prohibited))
             {
                 Console.Clear();
                 Console.WriteLine("Parabéns, este número está na lista!");
-                numeroEncontrado = true;
+                numberFound = true;
             }
             else
             {
@@ -249,7 +249,7 @@ class Program
             }
         }
 
-        if (!numeroEncontrado)
+        if (!numberFound)
         {
             Console.WriteLine("Você tentou 3 vezes, acabou as chances.");
         }
@@ -262,22 +262,22 @@ class Program
     {
         {
             Console.WriteLine("Digite um número inteiro positivo:");
-            int numero;
+            int number;
 
 
-            while (!int.TryParse(Console.ReadLine(), out numero) || numero < 0)
+            while (!int.TryParse(Console.ReadLine(), out number) || number < 0)
             {
                 Console.WriteLine("Por favor, digite um número inteiro positivo:");
             }
 
-            int fatorial = 1;
+            int factorial = 1;
 
-            for (int i = 2; i <= numero; i++)
+            for (int i = 2; i <= number; i++)
             {
-                fatorial *= i;
+                factorial *= i;
             }
 
-            Console.WriteLine($"O fatorial de {numero} é {fatorial}.");
+            Console.WriteLine($"O fatorial de {number} é {factorial}.");
             Console.ReadLine();
         }
     }
@@ -286,18 +286,18 @@ class Program
     {
         {
             Console.WriteLine("Digite um número inteiro: ");
-            int numero;
+            int number;
 
 
-            while (!int.TryParse(Console.ReadLine(), out numero))
+            while (!int.TryParse(Console.ReadLine(), out number))
             {
                 Console.WriteLine("Por favor, digite um número inteiro: ");
             }
 
 
-            for (int i = 1; i <= numero; i++)
+            for (int i = 1; i <= number; i++)
             {
-                Console.WriteLine($"{i} x {numero} = {i * numero}");
+                Console.WriteLine($"{i} x {number} = {i * number}");
             }
 
 
@@ -308,43 +308,43 @@ class Program
     // Introdução While
     static void SumPositiveNumbers()
     {
-        int soma = 0;
-        int numero = 0;
+        int sum = 0;
+        int number = 0;
 
-        while (numero >= 0)
+        while (number >= 0)
         {
             Console.WriteLine("Digite um número - ou um número negativo para parar: ");
 
-            while (!int.TryParse(Console.ReadLine(), out numero))
+            while (!int.TryParse(Console.ReadLine(), out number))
             {
                 Console.WriteLine("Digite um número inteiro: ");
             }
 
-            if (numero >= 0) soma += numero;
+            if (number >= 0) sum += number;
         }
 
-        Console.WriteLine($"A soma dos números positivos é: {soma}");
+        Console.WriteLine($"A soma dos números positivos é: {sum}");
         Console.ReadLine();
     }
 
     static void CountEvenNumbers()
     {
-        int numerosPares = 0;
-        int numero = -1;
+        int evenNumbers = 0;
+        int number = -1;
 
-        while (numero != 0)
+        while (number != 0)
         {
             Console.WriteLine("Digite um número ou 0 para parar: ");
 
-            while (!int.TryParse(Console.ReadLine(), out numero))
+            while (!int.TryParse(Console.ReadLine(), out number))
             {
                 Console.WriteLine("Digite um número inteiro: ");
             }
 
-            if (numero != 0 && numero % 2 == 0) numerosPares++;
+            if (number != 0 && number % 2 == 0) evenNumbers++;
         }
 
-        Console.WriteLine($"A quantidade de números pares inseridos é: {numerosPares}");
+        Console.WriteLine($"A quantidade de números pares inseridos é: {evenNumbers}");
         Console.ReadLine();
 
     }
@@ -353,12 +353,12 @@ class Program
 
     static void PrintNamesList()
     {
-        List<string> nomes = new List<string> { "Lucas", "Maria", "João", "Ana", "Pedro" };
+        List<string> names = new List<string> { "Lucas", "Maria", "João", "Ana", "Pedro" };
 
         Console.WriteLine("Lista de nomes:");
-        foreach (string nome in nomes)
+        foreach (string name in names)
         {
-            Console.WriteLine(nome);
+            Console.WriteLine(name);
         }
         Console.ReadLine();
 
@@ -368,28 +368,28 @@ class Program
 
     static void BankSystem()
     {
-        bool continuar = true;
-        decimal saldo = 0;
-        int tentativa = 0;
+        bool @continue = true;
+        decimal balance = 0;
+        int attempt = 0;
 
 
-        while (tentativa < 3 && !ValidaSenha())
+        while (attempt < 3 && !ValidaSenha())
         {
-            tentativa++;
+            attempt++;
             Console.Clear();
             Console.WriteLine("Senha incorreta. Tente novamente.");
-            Console.WriteLine($"Tentativa {tentativa} de 3");
+            Console.WriteLine($"Tentativa {attempt} de 3");
         }
 
 
-        if (tentativa >= 3)
+        if (attempt >= 3)
         {
             Console.WriteLine("Número máximo de tentativas alcançado. O programa será encerrado.");
             return;
         }
 
 
-        while (continuar)
+        while (@continue)
         {
             // Exibir o menu
             Console.Clear();
@@ -401,21 +401,21 @@ class Program
             Console.WriteLine("================");
             Console.Write("Escolha uma opção: ");
 
-            string escolha = Console.ReadLine();
+            string option = Console.ReadLine();
 
-            switch (escolha)
+            switch (option)
             {
                 case "1":
-                    ConsultarSaldo(saldo);
+                    ConsultarSaldo(balance);
                     break;
                 case "2":
-                    saldo = RealizarDeposito(saldo);
+                    balance = RealizarDeposito(balance);
                     break;
                 case "3":
-                    saldo = RealizarSaque(saldo);
+                    balance = RealizarSaque(balance);
                     break;
                 case "4":
-                    continuar = false;
+                    @continue = false;
                     Console.WriteLine("Saindo...");
                     break;
                 default:
@@ -423,7 +423,7 @@ class Program
                     break;
             }
 
-            if (continuar)
+            if (@continue)
             {
                 Console.WriteLine("\nPressione qualquer tecla para continuar...");
                 Console.ReadKey();
@@ -442,50 +442,50 @@ class Program
         return input == password;
     }
 
-    static void ConsultarSaldo(decimal saldo)
+    static void ConsultarSaldo(decimal balance)
     {
         Console.Clear();
-        Console.WriteLine($"Seu saldo atual é: R$ {saldo:F2}");
+        Console.WriteLine($"Seu saldo atual é: R$ {balance:F2}");
     }
 
-    static decimal RealizarDeposito(decimal saldo)
+    static decimal RealizarDeposito(decimal balance)
     {
         Console.Clear();
         Console.Write("Digite o valor para depósito: ");
-        decimal deposito;
+        decimal deposit;
 
-        while (!decimal.TryParse(Console.ReadLine(), out deposito) || deposito <= 0)
+        while (!decimal.TryParse(Console.ReadLine(), out deposit) || deposit <= 0)
         {
             Console.WriteLine("Por favor, insira um valor válido para depósito.");
         }
 
-        saldo += deposito;
-        Console.WriteLine($"Depósito realizado com sucesso! Seu novo saldo é: R$ {saldo:F2}");
-        return saldo;
+        balance += deposit;
+        Console.WriteLine($"Depósito realizado com sucesso! Seu novo saldo é: R$ {balance:F2}");
+        return balance;
     }
 
-    static decimal RealizarSaque(decimal saldo)
+    static decimal RealizarSaque(decimal balance)
     {
         Console.Clear();
         Console.Write("Digite o valor para saque: ");
-        decimal saque;
+        decimal sake;
 
-        while (!decimal.TryParse(Console.ReadLine(), out saque) || saque <= 0)
+        while (!decimal.TryParse(Console.ReadLine(), out sake) || sake <= 0)
         {
             Console.WriteLine("Por favor, insira um valor válido para saque.");
         }
 
-        if (saque > saldo)
+        if (sake > balance)
         {
             Console.WriteLine("Saldo insuficiente.");
         }
         else
         {
-            saldo -= saque;
-            Console.WriteLine($"Saque realizado com sucesso! Novo saldo: R$ {saldo:F2}");
+            balance -= sake;
+            Console.WriteLine($"Saque realizado com sucesso! Novo saldo: R$ {balance:F2}");
         }
 
-        return saldo;
+        return balance;
     }
 
 
