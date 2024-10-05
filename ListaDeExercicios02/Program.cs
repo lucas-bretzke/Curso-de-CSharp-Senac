@@ -373,7 +373,7 @@ class Program
         int attempt = 0;
 
 
-        while (attempt < 3 && !ValidaSenha())
+        while (attempt < 3 && !ValidatePassword())
         {
             attempt++;
             Console.Clear();
@@ -406,13 +406,13 @@ class Program
             switch (option)
             {
                 case "1":
-                    ConsultarSaldo(balance);
+                    checkBalance(balance);
                     break;
                 case "2":
-                    balance = RealizarDeposito(balance);
+                    balance = MakeDeposit(balance);
                     break;
                 case "3":
-                    balance = RealizarSaque(balance);
+                    balance = MakeWithdrawal(balance);
                     break;
                 case "4":
                     @continue = false;
@@ -431,7 +431,7 @@ class Program
         }
     }
 
-    static bool ValidaSenha()
+    static bool ValidatePassword()
     {
         string password = "333333";
         string input;
@@ -442,13 +442,13 @@ class Program
         return input == password;
     }
 
-    static void ConsultarSaldo(decimal balance)
+    static void checkBalance(decimal balance)
     {
         Console.Clear();
         Console.WriteLine($"Seu saldo atual é: R$ {balance:F2}");
     }
 
-    static decimal RealizarDeposito(decimal balance)
+    static decimal MakeDeposit(decimal balance)
     {
         Console.Clear();
         Console.Write("Digite o valor para depósito: ");
@@ -464,7 +464,7 @@ class Program
         return balance;
     }
 
-    static decimal RealizarSaque(decimal balance)
+    static decimal MakeWithdrawal(decimal balance)
     {
         Console.Clear();
         Console.Write("Digite o valor para saque: ");
