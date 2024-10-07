@@ -4,6 +4,18 @@ using System.Linq;
 using System.Security.Cryptography;
 
 
+
+public class Transferencia
+{
+    public decimal Valor { get; set; }
+    public string TipoOperacao { get; set; }
+    public decimal SaldoAnterior { get; internal set; }
+    public decimal SaldoAtual { get; internal set; }
+    public string Data { get; set; }
+    public string Hora { get; set; }
+
+}
+
 class Program
 {
     static void Main()
@@ -370,34 +382,26 @@ class Program
     {
         bool @continue = true;
         decimal balance = 0;
-        int attempt = 0;
+        decimal saldoAnterior = balance;
+        string tipoOperacao = string.Empty;
 
+        List<Transferencia> transferencias = new List<Transferencia>();
 
-        while (attempt < 3 && !ValidatePassword())
-        {
-            attempt++;
-            Console.Clear();
-            Console.WriteLine("Senha incorreta. Tente novamente.");
-            Console.WriteLine($"Tentativa {attempt} de 3");
-        }
-
-
-        if (attempt >= 3)
+        if (!ValidatePassword())
         {
             Console.WriteLine("Número máximo de tentativas alcançado. O programa será encerrado.");
             return;
         }
 
-
         while (@continue)
         {
-            // Exibir o menu
             Console.Clear();
             Console.WriteLine("===== MENU =====");
             Console.WriteLine("1. Consultar saldo");
             Console.WriteLine("2. Realizar depósito");
             Console.WriteLine("3. Realizar saque");
-            Console.WriteLine("4. Sair");
+            Console.WriteLine("4. Mostrar extrato");
+            Console.WriteLine("5. Sair");
             Console.WriteLine("================");
             Console.Write("Escolha uma opção: ");
 
@@ -409,12 +413,21 @@ class Program
                     checkBalance(balance);
                     break;
                 case "2":
+                    tipoOperacao = "depósito";
+                    saldoAnterior = balance;
                     balance = MakeDeposit(balance);
+                    transferencias.Add(ExtratoDeTransferencias(balance, saldoAnterior, tipoOperacao));
                     break;
                 case "3":
+                    tipoOperacao = "saque";
+                    saldoAnterior = balance;
                     balance = MakeWithdrawal(balance);
+                    transferencias.Add(ExtratoDeTransferencias(balance, saldoAnterior, tipoOperacao));
                     break;
                 case "4":
+                    MostrarExtrato(transferencias);
+                    break;
+                case "5":
                     @continue = false;
                     Console.WriteLine("Saindo...");
                     break;
@@ -431,15 +444,70 @@ class Program
         }
     }
 
+    public static Transferencia ExtratoDeTransferencias(decimal balance, decimal saldoAnterior, string tipoOperacao)
+    {
+        decimal valorOperacao = tipoOperacao == "depósito" ? balance - saldoAnterior : saldoAnterior - balance;
+
+
+        string data = DateTime.Now.Date.ToString("dd/MM/yyyy");
+        string hora = DateTime.Now.TimeOfDay.ToString(@"hh\:mm\:ss");
+
+        Transferencia transferencia = new Transferencia
+        {
+            SaldoAnterior = saldoAnterior,
+            Valor = valorOperacao,
+            TipoOperacao = tipoOperacao,
+            SaldoAtual = balance,
+            Data = data,
+            Hora = hora,
+        };
+
+        return transferencia;
+    }
+
+    public static void MostrarExtrato(List<Transferencia> transferencias)
+    {
+        Console.Clear();
+        Console.WriteLine("===== EXTRATO =====");
+
+        if (transferencias.Count == 0)
+        {
+            Console.WriteLine("Nenhuma transferência realizada.");
+        }
+        else
+        {
+            foreach (var transferencia in transferencias)
+            {
+                Console.WriteLine(
+                    $"\n Saldo Anterior: {transferencia.SaldoAnterior}," +
+                    $"\n Operação: {transferencia.TipoOperacao}," +
+                    $"\n Valor: {transferencia.Valor}," +
+                    $"\n Saldo Atual: {transferencia.SaldoAtual}" +
+                    $"\n Data: {transferencia.Data}" +
+                    $"\n Hora: {transferencia.Hora}");
+                Console.WriteLine("===================");
+            }
+        }
+
+    }
+
+
     static bool ValidatePassword()
     {
-        string password = "333333";
-        string input;
+        int attempts = 0;
 
-        Console.Write("Informe sua senha: ");
-        input = Console.ReadLine();
 
-        return input == password;
+        while (attempts < 3)
+        {
+            Console.Write("Digite a senha: "); string password = Console.ReadLine();
+
+            if (password == "333333") return true;
+
+            attempts++;
+            Console.WriteLine($"Senha incorreta. Tentativa {attempts} de 3.");
+        }
+
+        return false;
     }
 
     static void checkBalance(decimal balance)
