@@ -183,6 +183,126 @@ namespace MeuHelloWorld
             _ContagemPessoasCadastradas++;
         }
     }
+
+
+
+
+
+    public class Product
+    {
+        private string nome;
+        private decimal preco;
+
+        public Product(string name, decimal price)
+        {
+            nome = name;
+            Price = price;
+        }
+
+        public string Name { get; set; }
+
+        public decimal Price
+        {
+            get => preco;
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentOutOfRangeException(nameof(value), "O preço não pode ser negativo.");
+                preco = value;
+            }
+        }
+
+        public void AlterarNome(string newName)
+        {
+            Name = newName;
+        }
+
+        public void AlterarPreco(decimal newPrice)
+        {
+            Price = newPrice;
+        }
+
+        public string MostrarDetalhes()
+        {
+            return $"Nome do produto: {nome}, Preço: ${preco:F2}";
+        }
+
+
+
+
+        public static void Encapsulamento()
+        {
+            Product product = new Product("Laptop", 999.99m);
+            Console.WriteLine(product.MostrarDetalhes());
+
+            product.AlterarNome("Laptop Gamer");
+            product.AlterarPreco(1299.99m);
+            Console.WriteLine(product.MostrarDetalhes());
+
+            try
+            {
+                product.AlterarPreco(-500m); // This should raise an error
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+    }
+
+    public class Veiculo
+    {
+        public int Velocidade { get; set; }
+
+        public void Mover()
+        {
+            Console.WriteLine("O veiculo está se movendo");
+        }
+    }
+
+
+    public class Carro2 : Veiculo
+    {
+        public int QtdPortas { get; set; }
+
+        public void Buzinar()
+        {
+            Console.WriteLine("BHEEE");
+        }
+    }
+
+
+
+    public class Animal
+    {
+        protected string Som {get; set;}
+
+        public void EmitirSom()
+        {
+            Console.WriteLine($"Som do animal: {Som}");
+        }
+    }
+
+
+    public class Gato : Animal
+    {
+      public Gato()
+        {
+            Som = "MIAU";
+        }
+    }
+
+     public class Cachorro : Animal
+    {
+        public Cachorro()
+        {
+            Som = "AUAU";
+         }
+    }
+
+
+
+
     public class Executor
     {
         public static void Executar()
@@ -268,10 +388,26 @@ namespace MeuHelloWorld
 
             //Console.WriteLine($"Existem {ContaBancaria.QtdContas} contas cadastradas no sistema!");
 
-            var p1 = new Produto();
-            p1.Preco = 1568.24;
+            //var p1 = new Produto();
+            //p1.Preco = 1568.24;
 
-            Console.WriteLine(Produto.FormatarValor(p1.Preco));
+            //Console.WriteLine(Produto.FormatarValor(p1.Preco));
+
+
+            /////
+            //Product.Encapsulamento();
+
+            //var carro = new Carro2();
+            //carro.Mover();
+            //carro.Buzinar();
+
+
+            var gato = new Gato();
+            gato.EmitirSom();
+            
+            var cachorro = new Cachorro();
+            cachorro.EmitirSom();
+
         }
     }
 }
